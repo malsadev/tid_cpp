@@ -1,0 +1,26 @@
+// TODO (mustafa#3#): Implement minimal command line arg parsing
+
+
+sample text to match in entry file. This represented referenced objects which were previosuly forward declared
+in header files
+
+1)functions:
+    int add(int a, int b)
+    int subtract(int a, int b)
+2)classes:
+    Example example;
+    Example example{};
+3)object like macros:
+    MACRO : in text replacement
+    ifdef or ifndef MACRO: conditional compilation
+
+
+    ||=== Build: Debug in transitive_include_detector (compiler: GNU GCC Compiler) ===|
+/home/mustafa/Documents/dev1/transitive_include_detector/detect_transitive_include.cpp||In function ‘int main(int, char**)’:|
+/home/mustafa/Documents/dev1/transitive_include_detector/detect_transitive_include.cpp|62|
+
+
+error: aggregate ‘std::stringstream buffer’ has incomplete type and cannot be defined
+error: aggregate ‘std::stringstream buffer’ has incomplete type and cannot be defined
+
+

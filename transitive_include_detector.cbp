@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="transitive_include_detector" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/transitive_include_detector" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/transitive_include_detector" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="binder.cpp" />
+		<Unit filename="detect_transitive_include.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="detect_transitive_include_test.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="example_input_file.txt" />
+		<Unit filename="file.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="file.h" />
+		<Unit filename="header.h" />
+		<Unit filename="include/binder/binder.h" />
+		<Unit filename="include/binder/bound_expression.h" />
+		<Unit filename="include/binder/bound_order_by.h" />
+		<Unit filename="include/binder/bound_statement.h" />
+		<Unit filename="include/binder/bound_table_ref.h" />
+		<Unit filename="include/binder/expressions/bound_agg_call.h" />
+		<Unit filename="include/binder/expressions/bound_alias.h" />
+		<Unit filename="include/binder/expressions/bound_binary_op.h" />
+		<Unit filename="include/binder/expressions/bound_column_ref.h" />
+		<Unit filename="include/binder/expressions/bound_constant.h" />
+		<Unit filename="include/binder/expressions/bound_func_call.h" />
+		<Unit filename="include/binder/expressions/bound_star.h" />
+		<Unit filename="include/binder/expressions/bound_unary_op.h" />
+		<Unit filename="include/binder/expressions/bound_window.h" />
+		<Unit filename="include/binder/keyword_helper.h" />
+		<Unit filename="include/binder/simplified_token.h" />
+		<Unit filename="include/binder/statement/create_statement.h" />
+		<Unit filename="include/binder/statement/delete_statement.h" />
+		<Unit filename="include/binder/statement/explain_statement.h" />
+		<Unit filename="include/binder/statement/index_statement.h" />
+		<Unit filename="include/binder/statement/insert_statement.h" />
+		<Unit filename="include/binder/statement/select_statement.h" />
+		<Unit filename="include/binder/statement/set_show_statement.h" />
+		<Unit filename="include/binder/statement/update_statement.h" />
+		<Unit filename="include/binder/table_ref/bound_base_table_ref.h" />
+		<Unit filename="include/binder/table_ref/bound_cross_product_ref.h" />
+		<Unit filename="include/binder/table_ref/bound_cte_ref.h" />
+		<Unit filename="include/binder/table_ref/bound_expression_list_ref.h" />
+		<Unit filename="include/binder/table_ref/bound_join_ref.h" />
+		<Unit filename="include/binder/table_ref/bound_subquery_ref.h" />
+		<Unit filename="include/binder/tokens.h" />
+		<Unit filename="include/buffer/buffer_pool_manager.h" />
+		<Unit filename="include/buffer/clock_replacer.h" />
+		<Unit filename="include/buffer/lru_k_replacer.h" />
+		<Unit filename="include/buffer/lru_replacer.h" />
+		<Unit filename="include/buffer/replacer.h" />
+		<Unit filename="include/catalog/catalog.h" />
+		<Unit filename="include/catalog/column.h" />
+		<Unit filename="include/catalog/schema.h" />
+		<Unit filename="include/catalog/table_generator.h" />
+		<Unit filename="include/common/bustub_instance.h" />
+		<Unit filename="include/common/channel.h" />
+		<Unit filename="include/common/config.h" />
+		<Unit filename="include/common/enums/statement_type.h" />
+		<Unit filename="include/common/exception.h" />
+		<Unit filename="include/common/hash_util.h" />
+		<Unit filename="include/common/logger.h" />
+		<Unit filename="include/common/macros.h" />
+		<Unit filename="include/common/rid.h" />
+		<Unit filename="include/common/rwlatch.h" />
+		<Unit filename="include/common/util/hash_util.h" />
+		<Unit filename="include/common/util/string_util.h" />
+		<Unit filename="include/concurrency/lock_manager.h" />
+		<Unit filename="include/concurrency/transaction.h" />
+		<Unit filename="include/concurrency/transaction_manager.h" />
+		<Unit filename="include/concurrency/watermark.h" />
+		<Unit filename="include/container/disk/hash/disk_extendible_hash_table.h" />
+		<Unit filename="include/container/disk/hash/disk_hash_table.h" />
+		<Unit filename="include/container/disk/hash/linear_probe_hash_table.h" />
+		<Unit filename="include/container/hash/hash_function.h" />
+		<Unit filename="include/container/hash/hash_table.h" />
+		<Unit filename="include/execution/check_options.h" />
+		<Unit filename="include/execution/execution_common.h" />
+		<Unit filename="include/execution/execution_engine.h" />
+		<Unit filename="include/execution/executor_context.h" />
+		<Unit filename="include/execution/executor_factory.h" />
+		<Unit filename="include/execution/executors/abstract_executor.h" />
+		<Unit filename="include/execution/executors/aggregation_executor.h" />
+		<Unit filename="include/execution/executors/delete_executor.h" />
+		<Unit filename="include/execution/executors/filter_executor.h" />
+		<Unit filename="include/execution/executors/hash_join_executor.h" />
+		<Unit filename="include/execution/executors/index_scan_executor.h" />
+		<Unit filename="include/execution/executors/init_check_executor.h" />
+		<Unit filename="include/execution/executors/insert_executor.h" />
+		<Unit filename="include/execution/executors/limit_executor.h" />
+		<Unit filename="include/execution/executors/mock_scan_executor.h" />
+		<Unit filename="include/execution/executors/nested_index_join_executor.h" />
+		<Unit filename="include/execution/executors/nested_loop_join_executor.h" />
+		<Unit filename="include/execution/executors/projection_executor.h" />
+		<Unit filename="include/execution/executors/seq_scan_executor.h" />
+		<Unit filename="include/execution/executors/sort_executor.h" />
+		<Unit filename="include/execution/executors/topn_check_executor.h" />
+		<Unit filename="include/execution/executors/topn_executor.h" />
+		<Unit filename="include/execution/executors/topn_per_group_executor.h" />
+		<Unit filename="include/execution/executors/update_executor.h" />
+		<Unit filename="include/execution/executors/values_executor.h" />
+		<Unit filename="include/execution/executors/window_function_executor.h" />
+		<Unit filename="include/execution/expressions/abstract_expression.h" />
+		<Unit filename="include/execution/expressions/arithmetic_expression.h" />
+		<Unit filename="include/execution/expressions/array_expression.h" />
+		<Unit filename="include/execution/expressions/column_value_expression.h" />
+		<Unit filename="include/execution/expressions/comparison_expression.h" />
+		<Unit filename="include/execution/expressions/constant_value_expression.h" />
+		<Unit filename="include/execution/expressions/logic_expression.h" />
+		<Unit filename="include/execution/expressions/string_expression.h" />
+		<Unit filename="include/execution/plans/abstract_plan.h" />
+		<Unit filename="include/execution/plans/aggregation_plan.h" />
+		<Unit filename="include/execution/plans/delete_plan.h" />
+		<Unit filename="include/execution/plans/filter_plan.h" />
+		<Unit filename="include/execution/plans/hash_join_plan.h" />
+		<Unit filename="include/execution/plans/index_scan_plan.h" />
+		<Unit filename="include/execution/plans/insert_plan.h" />
+		<Unit filename="include/execution/plans/limit_plan.h" />
+		<Unit filename="include/execution/plans/mock_scan_plan.h" />
+		<Unit filename="include/execution/plans/nested_index_join_plan.h" />
+		<Unit filename="include/execution/plans/nested_loop_join_plan.h" />
+		<Unit filename="include/execution/plans/projection_plan.h" />
+		<Unit filename="include/execution/plans/seq_scan_plan.h" />
+		<Unit filename="include/execution/plans/sort_plan.h" />
+		<Unit filename="include/execution/plans/topn_per_group_plan.h" />
+		<Unit filename="include/execution/plans/topn_plan.h" />
+		<Unit filename="include/execution/plans/update_plan.h" />
+		<Unit filename="include/execution/plans/values_plan.h" />
+		<Unit filename="include/execution/plans/window_plan.h" />
+		<Unit filename="include/optimizer/optimizer.h" />
+		<Unit filename="include/optimizer/optimizer_internal.h" />
+		<Unit filename="include/planner/planner.h" />
+		<Unit filename="include/primer/orset.h" />
+		<Unit filename="include/primer/orset_driver.h" />
+		<Unit filename="include/primer/trie.h" />
+		<Unit filename="include/primer/trie_answer.h" />
+		<Unit filename="include/primer/trie_store.h" />
+		<Unit filename="include/recovery/checkpoint_manager.h" />
+		<Unit filename="include/recovery/log_manager.h" />
+		<Unit filename="include/recovery/log_record.h" />
+		<Unit filename="include/recovery/log_recovery.h" />
+		<Unit filename="include/storage/disk/disk_manager.h" />
+		<Unit filename="include/storage/disk/disk_manager_memory.h" />
+		<Unit filename="include/storage/disk/disk_scheduler.h" />
+		<Unit filename="include/storage/disk/write_back_cache.h" />
+		<Unit filename="include/storage/index/b_plus_tree.h" />
+		<Unit filename="include/storage/index/b_plus_tree_index.h" />
+		<Unit filename="include/storage/index/extendible_hash_table_index.h" />
+		<Unit filename="include/storage/index/generic_key.h" />
+		<Unit filename="include/storage/index/hash_comparator.h" />
+		<Unit filename="include/storage/index/index.h" />
+		<Unit filename="include/storage/index/index_iterator.h" />
+		<Unit filename="include/storage/index/int_comparator.h" />
+		<Unit filename="include/storage/index/linear_probe_hash_table_index.h" />
+		<Unit filename="include/storage/index/stl_comparator_wrapper.h" />
+		<Unit filename="include/storage/index/stl_equal_wrapper.h" />
+		<Unit filename="include/storage/index/stl_hasher_wrapper.h" />
+		<Unit filename="include/storage/index/stl_ordered.h" />
+		<Unit filename="include/storage/index/stl_unordered.h" />
+		<Unit filename="include/storage/page/b_plus_tree_header_page.h" />
+		<Unit filename="include/storage/page/b_plus_tree_internal_page.h" />
+		<Unit filename="include/storage/page/b_plus_tree_leaf_page.h" />
+		<Unit filename="include/storage/page/b_plus_tree_page.h" />
+		<Unit filename="include/storage/page/extendible_htable_bucket_page.h" />
+		<Unit filename="include/storage/page/extendible_htable_directory_page.h" />
+		<Unit filename="include/storage/page/extendible_htable_header_page.h" />
+		<Unit filename="include/storage/page/hash_table_block_page.h" />
+		<Unit filename="include/storage/page/hash_table_bucket_page.h" />
+		<Unit filename="include/storage/page/hash_table_directory_page.h" />
+		<Unit filename="include/storage/page/hash_table_header_page.h" />
+		<Unit filename="include/storage/page/hash_table_page_defs.h" />
+		<Unit filename="include/storage/page/page.h" />
+		<Unit filename="include/storage/page/page_guard.h" />
+		<Unit filename="include/storage/page/table_page.h" />
+		<Unit filename="include/storage/page/tmp_tuple_page.h" />
+		<Unit filename="include/storage/table/table_heap.h" />
+		<Unit filename="include/storage/table/table_iterator.h" />
+		<Unit filename="include/storage/table/tmp_tuple.h" />
+		<Unit filename="include/storage/table/tuple.h" />
+		<Unit filename="include/type/abstract_pool.h" />
+		<Unit filename="include/type/bigint_type.h" />
+		<Unit filename="include/type/boolean_type.h" />
+		<Unit filename="include/type/decimal_type.h" />
+		<Unit filename="include/type/integer_parent_type.h" />
+		<Unit filename="include/type/integer_type.h" />
+		<Unit filename="include/type/limits.h" />
+		<Unit filename="include/type/numeric_type.h" />
+		<Unit filename="include/type/smallint_type.h" />
+		<Unit filename="include/type/timestamp_type.h" />
+		<Unit filename="include/type/tinyint_type.h" />
+		<Unit filename="include/type/type.h" />
+		<Unit filename="include/type/type_id.h" />
+		<Unit filename="include/type/type_util.h" />
+		<Unit filename="include/type/value.h" />
+		<Unit filename="include/type/value_factory.h" />
+		<Unit filename="include/type/varlen_type.h" />
+		<Unit filename="include/type/vector_type.h" />
+		<Unit filename="input_parser.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="input_parser.h" />
+		<Unit filename="notes.txt" />
+		<Unit filename="test_headers.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
