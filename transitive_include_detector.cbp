@@ -228,6 +228,7 @@
 		<Unit filename="include/type/value_factory.h" />
 		<Unit filename="include/type/varlen_type.h" />
 		<Unit filename="include/type/vector_type.h" />
+		<Unit filename="index_helpers.h" />
 		<Unit filename="input_parser.cpp">
 			<Option compile="0" />
 			<Option link="0" />
