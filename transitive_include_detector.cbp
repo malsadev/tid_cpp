@@ -30,16 +30,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="detect_transitive_include.cpp" />
-		<Unit filename="example_input_file.txt" />
-		<Unit filename="file.h" />
-		<Unit filename="header.h" />
-		<Unit filename="index_helpers.h" />
-		<Unit filename="notes.txt" />
-		<Unit filename="test_headers.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
+		<Unit filename="src/detect_transitive_include.cpp" />
+		<Unit filename="src/include/index_helpers.h" />
+		<Unit filename="test/test_headers.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
