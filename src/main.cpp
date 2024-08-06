@@ -1,4 +1,5 @@
 #include "clang-c/Index.h"
+#include "include/indexer.h"
 #include "include/index_helpers.h"
 #include "include/argparse.hpp" //will need this to parse cmdline args
 
@@ -18,16 +19,7 @@ int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppr
 
     argparse::ArgumentParser program("transitive_include_detector", "0.1.0");
 
-    program.add_argument("path").remaining();
-
-    //Generic program information.. didn't need to define a help argument because it is already taken care
-    // of by the arg parser library. I don't even have an action for the argument.
-//    program.add_argument("-h", "--help")
-//    .help("Shows help message and exits")
-//    .default_value(true)
-//    .implicit_value(true);
-
-
+    program.add_argument("path").remaining(); //should only accept files
 
     program.add_argument("-l", "--language")
     .default_value<std::string>(std::string {"c++"})
@@ -37,7 +29,10 @@ int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppr
     .default_value<std::string>(std::string {"c++17"})
     .help("C++ standard to be used by clang");
 
-//    std::cerr << program << std::endl;
+    program.add_argument("--verbose")
+      .help("Request verbose output")
+      .default_value(false)
+      .implicit_value(true);
 
     try
     {
@@ -57,6 +52,55 @@ int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppr
             std::exit(1);
         }
     }
+
+    auto verbose = program.get<bool>("--verbose");
+    auto language_option = program.get<std::string>("--language");
+    auto cpp_std = program.get<std::string>("--std");
+
+    std::vector<std::string_view> clang_options;
+    clang_options.push_back("-x");
+    clang_options.push_back(language_option.c_str());
+
+    auto language_standard = "-std=" + cpp_std;
+    if (language_option == "c++")
+    {
+        clang_options.push_back(language_standard.c_str());
+    }
+
+    indexer::indexer indexer;
+
+    indexer.m_verbose = verbose;
+
+    CXIndex index;
+    if (indexer.m_verbose)
+    {
+        index = clang_createIndex(0, 1);
+    }
+    else
+    {
+        index= clang_createIndex(0,0);
+    }
+
+    indexer.m_index = index;
+    indexer.m_clang_options = clang_options;
+
+
+    if (indexer.index("../transitive_include_example/source.cpp") == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+
+    clang_disposeIndex(index);
+
+
+
+
+
+
 
 //    std::unordered_map<std::string, std::vector<std::string>> files_map{}; //this holds files and their included headers
 //    std::unordered_map<std::string, std::vector<std::string>> external_calls_map{}; //this holds files and external method calls in them
@@ -90,7 +134,4 @@ int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppr
 //
 //
 //    clang_disposeIndex(index);
-
-    return 1;
-
 }
