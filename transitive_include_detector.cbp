@@ -10,7 +10,6 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="-fhbjsdj" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -33,9 +32,11 @@
 		</Compiler>
 		<Unit filename="LICENSE" />
 		<Unit filename="README.md" />
-		<Unit filename="src/detect_transitive_include.cpp" />
 		<Unit filename="src/include/argparse.hpp" />
 		<Unit filename="src/include/index_helpers.h" />
+		<Unit filename="src/include/indexer.h" />
+		<Unit filename="src/indexer.cpp" />
+		<Unit filename="src/main.cpp" />
 		<Unit filename="test/test_headers.cpp">
 			<Option compile="0" />
 			<Option link="0" />
