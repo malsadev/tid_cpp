@@ -66,7 +66,7 @@ void index_method_decls_helper(std::vector<std::string>& method_decls,
 
 //TODO: suppress unused parameter warnings for this function
 void inclusion_visitor(CXFile included_file,
-                       CXSourceLocation* inclusionStack,
+                       [[maybe_unused]]CXSourceLocation* inclusionStack,
                        unsigned include_len,
                        CXClientData client_data)
 {
@@ -95,7 +95,7 @@ void inclusion_visitor(CXFile included_file,
     clang_disposeString(included_CXFilename); //Disposing CString
 }
 
-CXChildVisitResult cursor_visitor(CXCursor current_cursor, CXCursor parent, CXClientData client_data)
+CXChildVisitResult cursor_visitor(CXCursor current_cursor, [[maybe_unused]]CXCursor parent, CXClientData client_data)
 {
 //do not expand includes, ignore cursors in include for now
     if (clang_Location_isFromMainFile(clang_getCursorLocation(current_cursor)) == 0)
@@ -185,7 +185,7 @@ int index_headers(std::unordered_map<std::string, std::vector<std::string>> &fil
 
 //TODO: write a function to analyse external method calls in a given file and store them for later comparision
 int index_external_calls(std::unordered_map<std::string,
-                         std::vector<std::string>> &external_calls_map,
+                         std::vector<std::string>>& external_calls_map,
                          const std::string& entry_filename, CXIndex& index)
 {
     std::cerr << "indexing external methods calls in: " << entry_filename << std::endl;
@@ -209,7 +209,7 @@ int index_external_calls(std::unordered_map<std::string,
     CXCursor cursor = clang_getTranslationUnitCursor(unit);
     clang_visitChildren(
         cursor,
-        [](CXCursor current_cursor, CXCursor parent, CXClientData client_data)
+        [](CXCursor current_cursor, [[maybe_unused]]CXCursor parent, CXClientData client_data)
     {
         //do not expand includes, ignore cursors in include for now
         if (clang_Location_isFromMainFile(clang_getCursorLocation(current_cursor)) == 0)

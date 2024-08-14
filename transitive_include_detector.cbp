@@ -33,6 +33,7 @@
 		<Unit filename="LICENSE" />
 		<Unit filename="README.md" />
 		<Unit filename="src/include/argparse.hpp" />
+		<Unit filename="src/include/argparse_wrapper.h" />
 		<Unit filename="src/include/index_helpers.h" />
 		<Unit filename="src/include/indexer.h" />
 		<Unit filename="src/indexer.cpp" />
