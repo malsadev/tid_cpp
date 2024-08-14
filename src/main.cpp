@@ -1,7 +1,8 @@
 #include "clang-c/Index.h"
-#include "include/indexer.h"
-#include "include/index_helpers.h"
-#include "include/argparse.hpp" //will need this to parse cmdline args
+#include "indexer.h"
+//#include "index_helpers.h"
+#include "argparse_wrapper.h" //will need this to parse cmdline args
+
 
 //#include <iostream>
 #include <unordered_map>
@@ -13,7 +14,7 @@
 int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppress unused parameter warnings
 {
 
-    auto is_stdout = isatty(STDOUT_FILENO) == 1;
+    [[maybe_unused]]auto is_stdout = isatty(STDOUT_FILENO) == 1;
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);
 
@@ -57,7 +58,7 @@ int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppr
     auto language_option = program.get<std::string>("--language");
     auto cpp_std = program.get<std::string>("--std");
 
-    std::vector<std::string_view> clang_options;
+    std::vector<const char*> clang_options;
     clang_options.push_back("-x");
     clang_options.push_back(language_option.c_str());
 
