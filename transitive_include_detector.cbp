@@ -10,6 +10,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="../transitive_include_example/src/source.cpp" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -32,16 +33,16 @@
 		</Compiler>
 		<Unit filename="LICENSE" />
 		<Unit filename="README.md" />
-		<Unit filename="src/include/argparse.hpp" />
-		<Unit filename="src/include/argparse_wrapper.h" />
-		<Unit filename="src/include/index_helpers.h" />
-		<Unit filename="src/include/indexer.h" />
-		<Unit filename="src/indexer.cpp" />
-		<Unit filename="src/main.cpp" />
+		<Unit filename="argparse.hpp" />
+		<Unit filename="index_helpers.h" />
+		<Unit filename="indexer.cpp" />
+		<Unit filename="indexer.h" />
+		<Unit filename="main.cpp" />
 		<Unit filename="test/test_headers.cpp">
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="util.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

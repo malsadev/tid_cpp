@@ -10,6 +10,9 @@
 #include <string>
 //#include <unordered_set>
 #include <unistd.h>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppress unused parameter warnings
 {
@@ -85,15 +88,34 @@ int main(int argc, char* argv[]) //omitted parameter names to temporarirly suppr
     indexer.m_index = index;
     indexer.m_clang_options = clang_options;
 
+    std::string directory_path = program.get("path");
 
-    if (indexer.index(program.get("path")) == 1)
-    {
-        return 1;
+
+    for (auto& entry: fs::recursive_directory_iterator(directory_path)){
+
+            if (entry.is_regular_file() && entry.path().extension() == ".cpp") {
+                //std::cout << "Indexing file: " << entry.path() << std::endl;
+
+                int exit_code = indexer.index(entry.path().string());
+
+//                if (exit_code == 1) {
+//                    std::cout << "Successfully indexed file: " << entry.path() << std::endl;
+//                } else {
+//                    std::cerr << "Failed to index file: " << entry.path() << std::endl;
+//                }
+            }
+
     }
-    else
-    {
-        return 0;
-    }
+
+
+//    if (indexer.index(program.get("path")) == 1)
+//    {
+//        return 1;
+//    }
+//    else
+//    {
+//        return 0;
+//    }
 
     clang_disposeIndex(index);
 
