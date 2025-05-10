@@ -249,7 +249,7 @@ int index_external_calls(std::unordered_map<std::string,
             (token_map -> at(cursor_spelling)).insert(cursor_kind);
         }
 
-        std::cout << "\n";
+        //std::cout << "\n";
         return CXChildVisit_Recurse;
     },
     &token_map
