@@ -244,7 +244,7 @@ int index_external_calls(const std::string_view entry_filename,
     //std::unordered_map<std::string, std::vector<unsigned>>  cursor_location_map{};
 
     CXCursor cursor = clang_getTranslationUnitCursor(unit);
-        clang_visitChildren(
+    clang_visitChildren(
         cursor,
         [](CXCursor current_cursor, [[maybe_unused]]CXCursor parent, CXClientData client_data)
     {
@@ -460,10 +460,18 @@ int indexer::index(std::string_view file_path)
         return 0; // fail fast
     }
 
-    std::cout << "\n";
+
+    //TODO: this should be in its own function, because it's the core logic of the program and it's not
+    //really indexing anything
+    //std::cout << "\n";
     for (auto& [file, headers] : indexer::working_dir_repr)
     {
+        if (indexer::visited_files.find(file) != indexer::visited_files.end())
+        {
 
+            continue;
+        }
+        indexer::visited_files.insert(file);
         std::vector<std::string> valid_methods{};
         for (auto& header : headers)
         {
@@ -485,7 +493,7 @@ int indexer::index(std::string_view file_path)
         if (transitives)
         {
             set_color(31);
-            std::cerr << "file: " << file << " depends on the following transitives:" << std::endl;
+            std::cerr << file << " depends on the following transitives:" << std::endl;
 
             std::cout << "\n";
             for (auto& transitive: transitive_deps)
@@ -498,10 +506,11 @@ int indexer::index(std::string_view file_path)
         }
         else
         {
-             set_color(32);  // Set text color to green
+            set_color(32);  // Set text color to green
 
-            std::cout << "file: " << file << " is transitive dependency free!" << std::endl;
-             reset_color();
+            //std::cout << "file: " << file << " is transitive dependency free!" << std::endl;
+            std::cout << file << std::endl;
+            reset_color();
         }
     }
 

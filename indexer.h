@@ -4,6 +4,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 
@@ -23,6 +24,7 @@ struct indexer
 
     static inline std::unordered_map<std::string, std::vector<std::pair<std::string, std::pair<unsigned, unsigned>>>> external_calls{};
     static inline std::unordered_map<std::string, std::vector<std::string>> method_decls{};
+    static inline std::unordered_set<std::string> visited_files{};
 
 
     static int index(std::string_view file_path);
