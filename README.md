@@ -1,24 +1,37 @@
 # Transitive Include Detector
 
-This C++ project leverages libclang to detect and warn about transitive includes in source files. Transitive includes occur when unnecessary headers are indirectly included through other headers, potentially bloating compilation times and increasing dependencies.
+**Transitive Include Detector** is a C++ tool that leverages **libclang** to detect and warn about transitive includes in C/C++ projects. Transitive includes occur when headers are indirectly included through other headers, often leading to increased compilation times and unnecessary dependencies.
 
-# Key Features:
+---
 
-  Uses libclang for efficient and accurate parsing of C++ source files.
-  Identifies and reports transitive includes within the codebase.
-  Integrated with CodeBlocks IDE for seamless development and testing.
+## 🚀 Key Features
 
-# Why Use This Tool:
-Transitive includes can significantly impact build times and code maintainability. This tool helps developers identify and refactor unnecessary dependencies, leading to more efficient builds and cleaner codebases.
+- Utilizes **libclang** for efficient and accurate parsing of C++ source files  
+- Detects and reports transitive includes within the codebase  
+- Designed for integration with **Code::Blocks IDE** for seamless development and testing  
 
-# Usage:
+---
 
-  Clone the repository.
-  Build the project using CodeBlocks IDE or your preferred development environment.
-  Run the executable on your C++ project directory to analyze source files and receive warnings about transitive includes.
+## 💡 Why Use This Tool?
 
-# Contributing:
-Contributions are welcome! Fork the repository, make improvements, and submit a pull request. Help make C++ development faster and more efficient by tackling transitive includes head-on.
+Transitive includes can significantly impact build times and code maintainability. This tool helps developers:
 
-# License:
-This project is licensed under the MIT License - see the LICENSE file for details.
+- Identify unnecessary indirect dependencies  
+- Improve compilation performance  
+- Simplify and clean up header usage across large codebases  
+
+---
+
+## 📸 Screenshots
+
+_Add screenshots here to demonstrate the tool's functionality, sample output, or Code::Blocks integration._
+
+![Screenshot Placeholder](./screenshots/example.png)
+
+---
+
+## 🔧 Usage
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/transitive-include-detector.git
