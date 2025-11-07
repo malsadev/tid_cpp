@@ -1,6 +1,6 @@
 # Transitive Include Detector
 
-**Transitive Include Detector** is a C++ tool that leverages **libclang** to detect and warn about transitive includes in C/C++ projects. Transitive includes occur when headers are indirectly included through other headers, often leading to compatibility issues when building projects in different environment.
+**Transitive Include Detector** is a C++ tool that leverages **libclang** to detect and warn about transitive includes in C/C++ projects. Transitive includes occur when headers are indirectly included through other headers, often leading to compatibility issues when building projects in different environments.
 
 ---
 
