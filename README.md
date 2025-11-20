@@ -17,18 +17,7 @@ _Sample output for some cases_
 ## 🚀 Key Features
 
 - Utilizes **libclang** for efficient and accurate parsing of C++ source files  
-- Detects and reports transitive includes within the codebase  
-- Designed for integration with **Code::Blocks IDE** for seamless development and testing  
-
----
-
-## 💡 Why Use This Tool?
-
-Transitive includes can significantly impact build times and code maintainability. This tool helps developers:
-
-- Identify unnecessary indirect dependencies  
-- Improve compilation performance  
-- Simplify and clean up header usage across large codebases  
+- Detects transitive includes within the codebase
 
 ---
 
