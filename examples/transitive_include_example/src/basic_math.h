@@ -1,7 +1,0 @@
-#ifndef BASIC_MATH_H
-#define BASIC_MATH_H
-
-int add(int a, int b);
-int subtract(int a, int b);
-
-#endif // BASIC_MATH_H
