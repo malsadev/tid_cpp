@@ -1,0 +1,3 @@
+[submodule "pthash"]
+	path = pthash
+	url = https://github.com/jermp/pthash.git
