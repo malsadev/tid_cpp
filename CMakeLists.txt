@@ -7,16 +7,24 @@ project(tid_cpp)
 
 add_executable(tid)
 
+find_package(Clang REQUIRED)
+target_link_libraries(tid PRIVATE libclang fasthashset)
+
+target_link_libraries(tid PRIVATE libclang)
+
 target_sources(tid
 	PRIVATE
 	main.cpp
 )
 
-find_package(Clang REQUIRED)
-
-target_include_directories(tid PRIVATE ${CLANG_INCLUDE_DIRS})
-
-target_link_libraries(tid PRIVATE libclang)
+add_library(fasthashset)
+target_sources(fasthashset
+	PRIVATE FastHashSet.cpp
+	PUBLIC FILE_SET HEADERS
+		BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}
+		FILES FastHashSet.hpp
+)
 
 add_subdirectory(pthash)
-target_link_libraries(tid PRIVATE PTHASH)
+target_link_libraries(fasthashset PRIVATE PTHASH)
+# target_link_libraries(tid PRIVATE PTHASH)
