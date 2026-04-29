@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <cassert>
+#include <catch2/catch_test_macros.hpp>
 #include "FastHashSet.hpp"
 
 static std::vector<std::string> make_strings(size_t count) {
@@ -11,35 +11,27 @@ static std::vector<std::string> make_strings(size_t count) {
   return result;
 }
 
-int main(int argc, char *argv[]) {
-  if (argc < 2) {
-    return -1;
-  }
+TEST_CASE("build_large_hashset", "[fasthashset]") {
+  auto strings = make_strings(1'000'000);
+  auto store = FastHashSet(strings, true, 1);
+  REQUIRE(store.get_size() == 1'000'000);
+}
 
-  std::string op(argv[1]);
+TEST_CASE("build_large_hashset_using_multiple_threads", "[fasthashset]") {
+  auto strings = make_strings(1'000'000);
+  auto store = FastHashSet(strings, true, 3);
+  REQUIRE(store.get_size() == 1'000'000);
+}
 
-  if (op == "build_large_hashset") {
-    auto strings = make_strings(1'000'000);
-    auto store = FastHashSet(strings, true, 1);
-    assert(store.get_size() == 1'000'000);
-    return 0;
-  } else if (op == "build_large_hashset_using_multiple_threads") {
-    auto strings = make_strings(1'000'000);
-    auto store = FastHashSet(strings, true, 3);
-    assert(store.get_size() == 1'000'000);
-    return 0;
-  } else if (op == "positive_negative_lookup") {
-    auto strings = make_strings(1'000'000);
-    auto store = FastHashSet(strings, true, 1);
-    assert(!store.exists("some_string"));
-    assert(store.exists("key_0"));
-    return 0;
-  } else if (op == "get_internal_array_size") {
-    auto strings = make_strings(100);
-    auto store = FastHashSet(strings, true, 1);
-    assert(store.get_size() == 100);
-    return 0;
-  }
+TEST_CASE("positive_negative_lookup", "[fasthashset]") {
+  auto strings = make_strings(1'000'000);
+  auto store = FastHashSet(strings, true, 1);
+  REQUIRE_FALSE(store.exists("some_string"));
+  REQUIRE(store.exists("key_0"));
+}
 
-  return -1;
+TEST_CASE("get_internal_array_size", "[fasthashset]") {
+  auto strings = make_strings(100);
+  auto store = FastHashSet(strings, true, 1);
+  REQUIRE(store.get_size() == 100);
 }

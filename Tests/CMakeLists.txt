@@ -1,3 +1,11 @@
+include(FetchContent)
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG        v3.8.1
+)
+FetchContent_MakeAvailable(Catch2)
+
 add_executable(UnitTestTid)
 
 target_sources(UnitTestTid
@@ -5,16 +13,7 @@ target_sources(UnitTestTid
     TidUnitTests.cpp
 )
 
-target_link_libraries(UnitTestTid PRIVATE fasthashset)
+target_link_libraries(UnitTestTid PRIVATE fasthashset Catch2::Catch2WithMain)
 
-function(FastHashSetTest op)
-  add_test(
-    NAME ${op}
-    COMMAND UnitTestTid ${op}
-  )
-endfunction()
-
-FastHashSetTest(build_large_hashset)
-FastHashSetTest(build_large_hashset_using_multiple_threads)
-FastHashSetTest(positive_negative_lookup)
-FastHashSetTest(get_internal_array_size)
+include(Catch)
+catch_discover_tests(UnitTestTid)
