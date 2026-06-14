@@ -47,6 +47,7 @@ target_sources(translation_unit_visitors
 		FILES TranslationUnitVisitors.hpp
 )
 target_link_libraries(translation_unit_visitors PUBLIC libclang spdlog::spdlog)
+target_include_directories(translation_unit_visitors PUBLIC ${CLANG_INCLUDE_DIRS})
 
 
 if (BUILD_TESTING)
