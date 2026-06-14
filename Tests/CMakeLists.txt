@@ -13,7 +13,7 @@ target_sources(UnitTestTid
     TidUnitTests.cpp
 )
 
-target_link_libraries(UnitTestTid PRIVATE fasthashset Catch2::Catch2WithMain)
+target_link_libraries(UnitTestTid PRIVATE fasthashset translation_unit_visitors Catch2::Catch2WithMain)
 
 include(Catch)
 catch_discover_tests(UnitTestTid)

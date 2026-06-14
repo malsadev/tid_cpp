@@ -22,7 +22,7 @@ FetchContent_MakeAvailable(spdlog argparse)
 add_executable(tid)
 
 find_package(Clang REQUIRED)
-target_link_libraries(tid PRIVATE libclang fasthashset)
+target_link_libraries(tid PRIVATE libclang fasthashset translation_unit_visitors argparse)
 
 target_link_libraries(tid PRIVATE libclang)
 
@@ -33,11 +33,20 @@ target_sources(tid
 
 add_library(fasthashset)
 target_sources(fasthashset
-	PRIVATE FastHashSet.cpp 
+	PRIVATE FastHashSet.cpp
 	PUBLIC FILE_SET HEADERS
 		BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}
 		FILES FastHashSet.hpp
 )
+
+add_library(translation_unit_visitors)
+target_sources(translation_unit_visitors
+	PRIVATE TranslationUnitVisitors.cpp
+	PUBLIC FILE_SET HEADERS
+		BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}
+		FILES TranslationUnitVisitors.hpp
+)
+target_link_libraries(translation_unit_visitors PUBLIC libclang spdlog::spdlog)
 
 
 if (BUILD_TESTING)
