@@ -6,6 +6,19 @@ option(BUILD_TESTING "Enable testing and build tests" ON)
 
 project(tid_cpp)
 
+include(FetchContent)
+FetchContent_Declare(
+  spdlog
+  GIT_REPOSITORY https://github.com/gabime/spdlog.git
+  GIT_TAG        v1.15.1
+)
+FetchContent_Declare(
+  argparse
+  GIT_REPOSITORY https://github.com/p-ranav/argparse.git
+  GIT_TAG        v3.2
+)
+FetchContent_MakeAvailable(spdlog argparse)
+
 add_executable(tid)
 
 find_package(Clang REQUIRED)
