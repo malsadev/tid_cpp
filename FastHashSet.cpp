@@ -5,14 +5,10 @@
 #include <vector>
 
 using namespace pthash;
-FastHashSet::FastHashSet(const std::vector<std::string> &keys, bool verbose,
-                         int num_threads) {
-  // initialize vector with same size as input with default values
+FastHashSet::FastHashSet(const std::vector<std::string> &keys) {
   m_keys = std::vector(keys.size(), std::string("default"));
-  // build mphf
   build_configuration config;
-  config.verbose = verbose;
-  config.num_threads = num_threads;
+  config.verbose = false;
 
   hash_func.build_in_internal_memory(keys.begin(), keys.size(), config);
 

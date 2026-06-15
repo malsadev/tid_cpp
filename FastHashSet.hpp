@@ -12,8 +12,7 @@ typedef single_phf<xxhash_128,            // base hasher
 
 class FastHashSet {
 public:
-  FastHashSet(const std::vector<std::string> &keys, bool verbose,
-              int num_threads);
+  FastHashSet(const std::vector<std::string> &keys);
   bool exists(const std::string &key) const;
   int get_size();
 

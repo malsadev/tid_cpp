@@ -1,4 +1,5 @@
 #pragma once
+#include "FastHashSet.hpp"
 #include <clang-c/Index.h>
 #include <string>
 #include <vector>
@@ -21,8 +22,17 @@ struct InclusionVisitorData {
   CXTranslationUnit tu;
 };
 
+struct MainCursorData {
+  const FastHashSet *symbols;
+  CXFile main_file;
+  bool failed;
+};
+
 CXChildVisitResult visitMainCursor(CXCursor cursor, CXCursor parent,
                                    CXClientData client_data);
+
+CXChildVisitResult visitVarDeclCursor(CXCursor cursor, CXCursor parent,
+                                      CXClientData client_data);
 
 CXChildVisitResult visitHeaderCursor(CXCursor cursor, CXCursor parent,
                                      CXClientData client_data);
