@@ -46,7 +46,7 @@ target_sources(translation_unit_visitors
 		BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}
 		FILES TranslationUnitVisitors.hpp
 )
-target_link_libraries(translation_unit_visitors PUBLIC libclang spdlog::spdlog)
+target_link_libraries(translation_unit_visitors PUBLIC libclang spdlog::spdlog fasthashset)
 target_include_directories(translation_unit_visitors PUBLIC ${CLANG_INCLUDE_DIRS})
 
 
